@@ -4,6 +4,14 @@
 #include <stdint.h>
 #include <pthread.h>
 
+// Keep-alive heartbeat
+#define OP_HEARTBEAT      0x0008 
+#define OP_HEARTBEAT_ACK  0x0009
+
+// Client timeout
+#define CLIENT_TIMEOUT_SEC     10 
+#define HEARTBEAT_INTERVAL_SEC 3
+
 // Game Constants
 #define MAP_WIDTH 40
 #define MAP_HEIGHT 40
