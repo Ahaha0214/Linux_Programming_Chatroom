@@ -1,5 +1,3 @@
-# Linux_Programming_Chatroom
-
 # High-Concurrency Snake Game Server
 
 A multi-player snake game demonstrating high-concurrency client-server architecture with custom protocol, IPC mechanisms, and fault tolerance.
