@@ -50,23 +50,23 @@ A multi-player snake game demonstrating high-concurrency client-server architect
 
 ## Features Checklist
 
-### Client Side ✅
+### Client Side 
 - [x] Multi-threaded architecture (Input, Receive, Heartbeat threads)
 - [x] Stress testing with 100+ concurrent connections
 - [x] Latency statistics (microseconds)
 - [x] Throughput statistics (requests/second)
 
-### Server Side ✅
+### Server Side 
 - [x] Multi-Process architecture (Prefork pattern with 8 workers)
 - [x] IPC via Shared Memory (`shmget`/`shmat`)
 - [x] Process-shared mutex (`PTHREAD_PROCESS_SHARED`)
 - [x] Game loop in separate process
 
-### Protocol Design ✅
+### Protocol Design 
 - [x] Custom application-layer protocol (NOT HTTP/WebSocket)
 - [x] Packet structure: `[Length 4B][OpCode 2B][Checksum 2B][Data]`
 
-### Security & Reliability ✅
+### Security & Reliability 
 - [x] Integrity Check: Checksum verification
 - [x] Encryption: XOR cipher on payload
 - [x] Authentication: Login handshake (`OP_LOGIN_REQ`/`OP_LOGIN_RESP`)
@@ -74,7 +74,7 @@ A multi-player snake game demonstrating high-concurrency client-server architect
 - [x] Graceful Shutdown: SIGINT handler with resource cleanup
 - [x] Timeout Handling: Client timeout after 10 seconds of inactivity
 
-### Modularity ✅
+### Modularity 
 - [x] Static library (`libgame.a`) containing:
   - Protocol module (`proto.c`)
   - Logging module (`logging.c`)
