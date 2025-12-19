@@ -10,6 +10,32 @@ libgame.a: proto.o
 proto.o: proto.c proto.h common.h
 	$(CC) $(CFLAGS) -c proto.c
 
+## 新增 ##
+LIB_SRCS = proto.c logging.c
+LIB_OBJS = $(LIB_SRCS:.c=.o)
+
+all: libgame.a server client
+
+libgame.a: $(LIB_OBJS)
+	ar rcs libgame.a $(LIB_OBJS)
+	@echo "Built static library: libgame.a"
+
+proto.o: proto.c proto.h common.h
+	$(CC) $(CFLAGS) -c proto.c
+
+logging.o: logging.c logging.h
+	$(CC) $(CFLAGS) -c logging.c
+
+#  help 和 stress targets
+stress: client server
+	./client -stress 100
+
+help:
+	@echo "Usage: ..."
+
+.PHONY: all clean stress help
+## 新增 ##
+
 server: server.c libgame.a common.h
 	$(CC) $(CFLAGS) server.c -o server $(LDFLAGS)
 
